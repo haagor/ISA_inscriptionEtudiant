@@ -1,4 +1,4 @@
-package managed;
+/*package managed;
 
 
 import entities.Levels;
@@ -27,3 +27,4 @@ public class PistePresBean {
     public List<Piste> getPisteJaune() { return makeBulletin.findPisteByLevel(Levels.JAUNE); }
 
 }
+*/

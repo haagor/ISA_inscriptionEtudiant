@@ -12,30 +12,12 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="afficheWind">
-            <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="afficheWind">
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output name="afficheWindResponse">
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="afficheTemperature">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="afficheTemperature">
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="afficheTemperatureResponse">
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="afficheSnow">
-            <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="afficheSnow">
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output name="afficheSnowResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>

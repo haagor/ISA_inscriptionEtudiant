@@ -8,10 +8,6 @@
         <jta-data-source>MeteoDataSource</jta-data-source>
 
         <class>entities.Temperature</class>
-        <class>entities.Wind</class>
-        <class>entities.Snow</class>
-        <class>entities.Piste</class>
-        <class>entities.Bulletin</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

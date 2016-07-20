@@ -22,10 +22,6 @@ public class AffichageWSDemo {
 	private static void demo(AffichageWebService ws) throws Exception {
 		System.out.println(ws.afficheTemperature("haut"));
 		System.out.println(ws.afficheTemperature("bas"));
-		System.out.println(ws.afficheWind("haut"));
-		System.out.println(ws.afficheWind("bas"));
-		System.out.println(ws.afficheSnow("haut"));
-		System.out.println(ws.afficheSnow("bas"));
 		//ws.test();
 		//System.out.println("ok");
 	}

@@ -1,19 +1,14 @@
 package arquillian;
 
-import components.GestionInfoBean;
 import components.StationBean;
-import entities.Bulletin;
-import entities.Piste;
 import entities.Temperature;
-import entities.Wind;
 import interfaces.Collect;
-import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
-import utils.Database;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import utils.Database;
 
 import javax.ejb.EJB;
 
@@ -32,9 +27,6 @@ public abstract class AbstractTest {
 				.addPackage(Database.class.getPackage())
 				// Entities
 				.addPackage(Temperature.class.getPackage())
-				.addPackage(Wind.class.getPackage())
-				.addPackage(Bulletin.class.getPackage())
-				.addPackage(Piste.class.getPackage())
 
 				// Components Interfaces
 				.addPackage(Collect.class.getPackage())

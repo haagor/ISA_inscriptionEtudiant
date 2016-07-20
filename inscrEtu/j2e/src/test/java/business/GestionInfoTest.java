@@ -35,14 +35,6 @@ public class GestionInfoTest extends AbstractTest {
         System.out.println(temperature);
         assertTrue(memory.howManyTemps() == 1);
 
-        String wind = afficher.afficherWind("haut");
-        System.out.println(wind);
-        assertTrue(memory.howManyTemps() == 1);
-
-        String snow = afficher.afficherSnow("bas");
-        System.out.println(snow);
-        assertTrue(memory.howManyTemps() == 1);
-
     }
 
 }

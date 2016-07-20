@@ -1,4 +1,4 @@
-package entities;
+/*package entities;
 
 
 import javax.ejb.Singleton;
@@ -92,3 +92,4 @@ public class Bulletin implements Serializable{
         return false;
     }
 }
+*/

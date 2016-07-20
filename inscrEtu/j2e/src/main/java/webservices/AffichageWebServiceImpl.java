@@ -5,7 +5,6 @@ import interfaces.Afficher;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
-import java.time.LocalTime;
 
 
 @WebService(targetNamespace = "http://polytech.unice.fr/si/4a/isa/bf")
@@ -18,16 +17,6 @@ public class AffichageWebServiceImpl implements AffichageWebService {
 	@Override
 	public String afficheTemperature(String pos) {
 		return afficher.afficherTemperature(pos);
-	}
-
-	@Override
-	public String afficheWind(String pos) {
-		return afficher.afficherWind(pos);
-	}
-
-	@Override
-	public String afficheSnow(String pos) {
-		return afficher.afficherSnow(pos);
 	}
 
 	@Override

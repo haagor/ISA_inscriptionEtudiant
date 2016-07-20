@@ -12,15 +12,6 @@ public interface AffichageWebService {
 	String afficheTemperature(String pos);
 
 	@WebMethod
-	@WebResult(name = "affiche") // utilise si return autre chose que void
-	String afficheWind(String pos);
-
-	@WebMethod
-	@WebResult(name = "affiche") // utilise si return autre chose que void
-	String afficheSnow(String pos);
-
-
-	@WebMethod
 	void test();
 
 }
