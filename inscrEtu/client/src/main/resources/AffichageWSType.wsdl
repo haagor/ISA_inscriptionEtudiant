@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://webservices/" name="AffichageWebService" targetNamespace="http://webservices/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices/" elementFormDefault="unqualified" targetNamespace="http://webservices/" version="1.0">
+
+            <xs:element name="afficheSnow" type="tns:afficheSnow"/>
+
+            <xs:element name="afficheSnowResponse" type="tns:afficheSnowResponse"/>
+
+            <xs:element name="afficheTemperature" type="tns:afficheTemperature"/>
+
+            <xs:element name="afficheTemperatureResponse" type="tns:afficheTemperatureResponse"/>
+
+            <xs:element name="afficheWind" type="tns:afficheWind"/>
+
+            <xs:element name="afficheWindResponse" type="tns:afficheWindResponse"/>
+
+            <xs:element name="test" type="tns:test"/>
+
+            <xs:element name="testResponse" type="tns:testResponse"/>
+
+            <xs:complexType name="test">
+                <xs:sequence/>
+            </xs:complexType>
+
+            <xs:complexType name="testResponse">
+                <xs:sequence/>
+            </xs:complexType>
+
+            <xs:complexType name="afficheWind">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="afficheWindResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="affiche" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="afficheTemperature">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="afficheTemperatureResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="affiche" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="afficheSnow">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="afficheSnowResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="affiche" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="afficheWindResponse">
+        <wsdl:part element="ns1:afficheWindResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheTemperatureResponse">
+        <wsdl:part element="ns1:afficheTemperatureResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheSnow">
+        <wsdl:part element="ns1:afficheSnow" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="testResponse">
+        <wsdl:part element="ns1:testResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="test">
+        <wsdl:part element="ns1:test" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheWind">
+        <wsdl:part element="ns1:afficheWind" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheTemperature">
+        <wsdl:part element="ns1:afficheTemperature" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheSnowResponse">
+        <wsdl:part element="ns1:afficheSnowResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="AffichageWebService">
+        <wsdl:operation name="test">
+            <wsdl:input message="ns1:test" name="test">
+            </wsdl:input>
+            <wsdl:output message="ns1:testResponse" name="testResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheWind">
+            <wsdl:input message="ns1:afficheWind" name="afficheWind">
+            </wsdl:input>
+            <wsdl:output message="ns1:afficheWindResponse" name="afficheWindResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheTemperature">
+            <wsdl:input message="ns1:afficheTemperature" name="afficheTemperature">
+            </wsdl:input>
+            <wsdl:output message="ns1:afficheTemperatureResponse" name="afficheTemperatureResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheSnow">
+            <wsdl:input message="ns1:afficheSnow" name="afficheSnow">
+            </wsdl:input>
+            <wsdl:output message="ns1:afficheSnowResponse" name="afficheSnowResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
