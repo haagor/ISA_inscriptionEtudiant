@@ -1,6 +1,8 @@
 package arquillian;
 
 import components.StationBean;
+import entities.Cours;
+import entities.Parcours;
 import entities.Temperature;
 import interfaces.Collect;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -27,6 +29,8 @@ public abstract class AbstractTest {
 				.addPackage(Database.class.getPackage())
 				// Entities
 				.addPackage(Temperature.class.getPackage())
+				.addPackage(Parcours.class.getPackage())
+				.addPackage(Cours.class.getPackage())
 
 				// Components Interfaces
 				.addPackage(Collect.class.getPackage())

@@ -1,6 +1,8 @@
 package persistence;
 
 import arquillian.AbstractTest;
+import entities.Cours;
+import entities.Parcours;
 import entities.Temperature;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.transaction.api.annotation.TransactionMode;
@@ -11,6 +13,7 @@ import org.junit.runner.RunWith;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.time.Instant;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -42,5 +45,22 @@ public class StorageTest extends AbstractTest {
         assertEquals(t, stored);
 
         System.out.println(" >>> PersistenceStorageTest Temperature <<<");
+    }
+
+    @Test
+    public void storingParcours() throws Exception {
+        ArrayList<Cours> ac = new ArrayList<Cours>();
+        Parcours p = new Parcours("AL", ac);
+        assertEquals(0,p.getId());
+
+        p = entityManager.merge(p);
+        entityManager.persist(p);
+
+        int id = p.getId();
+        assertNotEquals(0,id);
+
+        Parcours stored = (Parcours) entityManager.find(Parcours.class, id);
+        assertTrue(stored.getIntitule() == "AL");
+        assertEquals(p, stored);
     }
 }
