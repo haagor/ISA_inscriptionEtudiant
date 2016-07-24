@@ -22,4 +22,7 @@ public class GestionParcoursBean implements ManageParcours {
         p = entityManager.merge(p);
         entityManager.persist(p);
     }
+
+    
+
 }
