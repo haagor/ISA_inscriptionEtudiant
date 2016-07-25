@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Parcours implements Serializable {
@@ -15,16 +17,19 @@ public class Parcours implements Serializable {
     @NotNull
     private String intitule;
 
-    @OneToMany (cascade = {CascadeType.PERSIST})
-    private ArrayList<Cours> cours;
+    @NotNull
+    private ArrayList<String> cours = new ArrayList<String>();
 
     public Parcours() {}
-    public Parcours(String intitule, ArrayList<Cours> cours) {
+    public Parcours(String intitule, ArrayList<String> cours) {
         this.intitule = intitule;
-        this.cours=cours;
+        this.cours = cours;
     }
 
     public int getId() { return id; }
     public String getIntitule() { return intitule; }
-    public ArrayList<Cours> getCours() { return cours; }
+    public ArrayList<String> getCours() { return cours; }
+
+    public void addCours(String c) { cours.add(c); }
+
 }

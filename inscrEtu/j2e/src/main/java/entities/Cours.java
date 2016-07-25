@@ -1,46 +1,32 @@
 package entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.ArrayList;
+public enum Cours {
 
-@Entity
-public class Cours implements Serializable {
+    EP5I9161("EP5I9161", "Algorithmic approach to distributed computing", "1", "lundi", "matin", "", "" );
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @NotNull
+    private String id;
     private String intitule;
+    private String periode;
+    private String emplacementJour;
+    private String emplacementHeure;
+    private String prerequis;
+    private String corequis;
 
-    @NotNull
-    private ArrayList<Integer> periode;
-
-    @NotNull
-    private ArrayList<ArrayList<Integer>> emplacement;
-
-    @NotNull
-    private ArrayList<Cours> prerequis;
-
-    @NotNull
-    private ArrayList<Cours> corequis;
-
-    public Cours() {}
-    public Cours(String intitule, ArrayList<Integer> periode, ArrayList<ArrayList<Integer>> emplacement,
-                 ArrayList<Cours> prerequis, ArrayList<Cours> corequis) {
+    Cours(String id, String intitule, String periode, String emplacementJour, String emplacementHeure, String prerequis, String corequis) {
+        this.id = id;
         this.intitule = intitule;
         this.periode = periode;
-        this.emplacement = emplacement;
+        this.emplacementJour = emplacementJour;
+        this.emplacementHeure = emplacementHeure;
         this.prerequis = prerequis;
         this.corequis = corequis;
     }
 
-    public int getId() { return id; }
+    public String getId() { return id; }
     public String getIntitule() { return intitule; }
-    public ArrayList<Integer> getPeriode() { return periode; }
-    public ArrayList<ArrayList<Integer>> getEmplacement() { return emplacement; }
-    public ArrayList<Cours> getPrerequis() { return prerequis; }
-    public ArrayList<Cours> getCorequis() { return corequis; }
+    public String getPeriode() { return periode; }
+    public String getEmplacementJour() { return emplacementJour; }
+    public String getEmplacementHeure() { return emplacementHeure; }
+    public String getPrerequis() { return prerequis; }
+    public String getCorequis() { return corequis; }
 }

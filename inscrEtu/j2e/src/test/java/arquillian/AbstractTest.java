@@ -1,7 +1,6 @@
 package arquillian;
 
 import components.StationBean;
-import entities.Cours;
 import entities.Parcours;
 import entities.Temperature;
 import interfaces.Collect;
@@ -30,7 +29,6 @@ public abstract class AbstractTest {
 				// Entities
 				.addPackage(Temperature.class.getPackage())
 				.addPackage(Parcours.class.getPackage())
-				.addPackage(Cours.class.getPackage())
 
 				// Components Interfaces
 				.addPackage(Collect.class.getPackage())

@@ -1,7 +1,6 @@
 package persistence;
 
 import arquillian.AbstractTest;
-import entities.Cours;
 import entities.Parcours;
 import entities.Temperature;
 import interfaces.Afficher;
@@ -56,8 +55,8 @@ public class AccessBdTest extends AbstractTest {
     @Test
     public void accessParcours() throws Exception {
         sleep(1000);
-        ArrayList<Cours> ac = new ArrayList<Cours>();
-        Parcours p = new Parcours("AL", ac);
+        ArrayList<String> cours = new ArrayList<String>();
+        Parcours p = new Parcours("AL", cours);
         entityManager.persist(p);
         p = search.findParcoursByIntitule("AL");
         assertEquals(p.getIntitule(), "AL");

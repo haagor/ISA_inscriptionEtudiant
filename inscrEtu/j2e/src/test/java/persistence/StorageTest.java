@@ -1,7 +1,6 @@
 package persistence;
 
 import arquillian.AbstractTest;
-import entities.Cours;
 import entities.Parcours;
 import entities.Temperature;
 import org.jboss.arquillian.junit.Arquillian;
@@ -49,7 +48,7 @@ public class StorageTest extends AbstractTest {
 
     @Test
     public void storingParcours() throws Exception {
-        ArrayList<Cours> ac = new ArrayList<Cours>();
+        ArrayList<String> ac = new ArrayList<String>();
         Parcours p = new Parcours("AL", ac);
         assertEquals(0,p.getId());
 

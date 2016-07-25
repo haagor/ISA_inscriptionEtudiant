@@ -8,7 +8,6 @@
         <jta-data-source>MeteoDataSource</jta-data-source>
 
         <class>entities.Temperature</class>
-        <class>entities.Cours</class>
         <class>entities.Parcours</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
