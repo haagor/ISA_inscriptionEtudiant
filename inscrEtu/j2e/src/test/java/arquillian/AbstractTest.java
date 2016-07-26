@@ -1,9 +1,11 @@
 package arquillian;
 
+import components.GestionParcoursBean;
 import components.StationBean;
 import entities.Parcours;
 import entities.Temperature;
 import interfaces.Collect;
+import interfaces.ManageParcours;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
@@ -32,10 +34,12 @@ public abstract class AbstractTest {
 
 				// Components Interfaces
 				.addPackage(Collect.class.getPackage())
+				.addPackage(ManageParcours.class.getPackage())
 				// Cart components
 				// Exceptions
 				// Components implementations
 				.addPackage(StationBean.class.getPackage())
+				.addPackage(GestionParcoursBean.class.getPackage())
 				// Persistence file
 				.addAsManifestResource(new ClassLoaderAsset("META-INF/persistence.xml"), "persistence.xml");
 	}

@@ -3,12 +3,15 @@ package persistence;
 import arquillian.AbstractTest;
 import entities.Parcours;
 import entities.Temperature;
+import interfaces.ManageParcours;
+import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.transaction.api.annotation.TransactionMode;
 import org.jboss.arquillian.transaction.api.annotation.Transactional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.time.Instant;
@@ -23,6 +26,12 @@ public class StorageTest extends AbstractTest {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @EJB
+    private ManageParcours manageParcours;
+
+    @EJB
+    private Search search;
 
 
     @Test
@@ -50,16 +59,33 @@ public class StorageTest extends AbstractTest {
     public void storingParcours() throws Exception {
         ArrayList<String> ac = new ArrayList<String>();
         Parcours p = new Parcours("AL", ac);
-        assertEquals(0,p.getId());
+        assertEquals(0, p.getId());
 
         p = entityManager.merge(p);
         entityManager.persist(p);
 
         int id = p.getId();
-        assertNotEquals(0,id);
+        assertNotEquals(0, id);
 
         Parcours stored = (Parcours) entityManager.find(Parcours.class, id);
         assertTrue(stored.getIntitule() == "AL");
         assertEquals(p, stored);
+    }
+
+    @Test
+    public void storingCours() throws Exception {
+        ArrayList<String> ac = new ArrayList<String>();
+        Parcours p = new Parcours("AL", ac);
+        assertEquals(0, p.getId());
+        p = entityManager.merge(p);
+        entityManager.persist(p);
+        
+        assertNotEquals(p.getCours(), null);
+        p = search.findParcoursByIntitule("AL");
+        assertNotEquals(p.getCours(), null);
+        manageParcours.addCoursP("AL", "rhaaaaa");
+        p = search.findParcoursByIntitule("AL");
+        assertTrue(p.getCours().contains("rhaaaaa"));
+
     }
 }
