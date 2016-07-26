@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://webservices/" name="InscrWebService" targetNamespace="http://webservices/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices/" elementFormDefault="unqualified" targetNamespace="http://webservices/" version="1.0">
+
+            <xs:element name="creatParcours" type="tns:creatParcours"/>
+
+            <xs:element name="creatParcoursResponse" type="tns:creatParcoursResponse"/>
+
+            <xs:complexType name="creatParcours">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="creatParcoursResponse">
+                <xs:sequence/>
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="creatParcoursResponse">
+        <wsdl:part element="ns1:creatParcoursResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="creatParcours">
+        <wsdl:part element="ns1:creatParcours" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="InscrWebService">
+        <wsdl:operation name="creatParcours">
+            <wsdl:input message="ns1:creatParcours" name="creatParcours">
+            </wsdl:input>
+            <wsdl:output message="ns1:creatParcoursResponse" name="creatParcoursResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

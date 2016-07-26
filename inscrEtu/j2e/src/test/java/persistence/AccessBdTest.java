@@ -1,10 +1,12 @@
 package persistence;
 
 import arquillian.AbstractTest;
+import entities.Cours;
 import entities.Parcours;
 import entities.Temperature;
 import interfaces.Afficher;
 import interfaces.MakeBulletin;
+import interfaces.ManageParcours;
 import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.transaction.api.annotation.TransactionMode;
@@ -32,6 +34,9 @@ public class AccessBdTest extends AbstractTest {
     private MakeBulletin makeBulletin;
 
     @EJB
+    private ManageParcours manageParcours;
+
+    @EJB
     private Search search;
 
     @PersistenceContext
@@ -55,12 +60,11 @@ public class AccessBdTest extends AbstractTest {
     @Test
     public void accessParcours() throws Exception {
         sleep(1000);
-        ArrayList<String> cours = new ArrayList<String>();
+        ArrayList<Cours> cours = new ArrayList<Cours>();
         Parcours p = new Parcours("AL", cours);
         entityManager.persist(p);
         p = search.findParcoursByIntitule("AL");
         assertEquals(p.getIntitule(), "AL");
 
     }
-
 }

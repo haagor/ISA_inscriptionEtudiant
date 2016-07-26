@@ -1,6 +1,7 @@
 package persistence;
 
 import arquillian.AbstractTest;
+import entities.Cours;
 import entities.Parcours;
 import entities.Temperature;
 import interfaces.ManageParcours;
@@ -57,7 +58,7 @@ public class StorageTest extends AbstractTest {
 
     @Test
     public void storingParcours() throws Exception {
-        ArrayList<String> ac = new ArrayList<String>();
+        ArrayList<Cours> ac = new ArrayList<Cours>();
         Parcours p = new Parcours("AL", ac);
         assertEquals(0, p.getId());
 
@@ -74,18 +75,18 @@ public class StorageTest extends AbstractTest {
 
     @Test
     public void storingCours() throws Exception {
-        ArrayList<String> ac = new ArrayList<String>();
+        ArrayList<Cours> ac = new ArrayList<Cours>();
         Parcours p = new Parcours("AL", ac);
         assertEquals(0, p.getId());
         p = entityManager.merge(p);
         entityManager.persist(p);
-        
+
         assertNotEquals(p.getCours(), null);
         p = search.findParcoursByIntitule("AL");
         assertNotEquals(p.getCours(), null);
-        manageParcours.addCoursP("AL", "rhaaaaa");
+        manageParcours.addCoursP("AL", Cours.EP5I9161);
         p = search.findParcoursByIntitule("AL");
-        assertTrue(p.getCours().contains("rhaaaaa"));
+        assertTrue(p.getCours().contains(Cours.EP5I9161));
 
     }
 }
