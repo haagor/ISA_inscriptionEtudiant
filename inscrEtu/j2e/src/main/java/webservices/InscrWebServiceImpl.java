@@ -8,7 +8,7 @@ import javax.jws.WebService;
 
 
 @WebService(targetNamespace = "http://polytech.unice.fr/si/4a/isa/bf")
-@Stateless(name = "IncrWS")
+@Stateless(name = "InscrWS")
 public class InscrWebServiceImpl implements InscrWebService {
 
     @EJB
@@ -16,5 +16,8 @@ public class InscrWebServiceImpl implements InscrWebService {
 
     @Override
     public void creatParcours(String name) { manageParcours.creatParcours(name); }
+
+    @Override
+    public String test() { return manageParcours.test(); }
 
 }

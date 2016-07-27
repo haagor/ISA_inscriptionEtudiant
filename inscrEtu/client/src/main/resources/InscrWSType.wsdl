@@ -6,6 +6,20 @@
 
             <xs:element name="creatParcoursResponse" type="tns:creatParcoursResponse"/>
 
+            <xs:element name="test" type="tns:test"/>
+
+            <xs:element name="testResponse" type="tns:testResponse"/>
+
+            <xs:complexType name="test">
+                <xs:sequence/>
+            </xs:complexType>
+
+            <xs:complexType name="testResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
             <xs:complexType name="creatParcours">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="arg0" type="xs:string"/>
@@ -22,11 +36,25 @@
         <wsdl:part element="ns1:creatParcoursResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="testResponse">
+        <wsdl:part element="ns1:testResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="test">
+        <wsdl:part element="ns1:test" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="creatParcours">
         <wsdl:part element="ns1:creatParcours" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="InscrWebService">
+        <wsdl:operation name="test">
+            <wsdl:input message="ns1:test" name="test">
+            </wsdl:input>
+            <wsdl:output message="ns1:testResponse" name="testResponse">
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="creatParcours">
             <wsdl:input message="ns1:creatParcours" name="creatParcours">
             </wsdl:input>

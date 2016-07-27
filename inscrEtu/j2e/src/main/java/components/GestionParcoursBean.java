@@ -36,4 +36,9 @@ public class GestionParcoursBean implements ManageParcours {
         entityManager.persist(p);
     }
 
+    @Override
+    public String test() {
+        return ">TEST<";
+    }
+
 }

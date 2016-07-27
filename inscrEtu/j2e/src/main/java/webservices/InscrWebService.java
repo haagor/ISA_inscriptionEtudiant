@@ -10,4 +10,7 @@ public interface InscrWebService {
     @WebMethod
     @WebResult(name = "creatParcours") // utilise si return autre chose que void
     void creatParcours(String intitule);
+
+    @WebMethod
+    String test();
 }

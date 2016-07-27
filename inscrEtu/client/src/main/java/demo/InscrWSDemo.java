@@ -19,7 +19,7 @@ public class InscrWSDemo {
 	}
 
 	private static void demo(InscrWebService ws) throws Exception {
-		ws.creatParcours("AL");
+        ws.creatParcours("AL");
         System.out.println("Parcours AL crée");
 		//ws.test();
 		//System.out.println("ok");
@@ -33,6 +33,7 @@ public class InscrWSDemo {
 		InscrWebService ws = factory.getInscrWebServiceImplPort();
         System.out.println("#### Updating the endpoint address dynamically");
 		String address = "http://"+host+":"+port+"/j2e-1.0-SNAPSHOT/webservices/InscrWS";
+		System.out.println(address);
 		((BindingProvider) ws).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, address);
 		return ws;
 	}

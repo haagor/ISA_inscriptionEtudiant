@@ -9,5 +9,6 @@ public interface ManageParcours {
 
     public void creatParcours(String intitule);
     public void addCoursP(String intitule, Cours cours);
+    public String test();
 
 }
