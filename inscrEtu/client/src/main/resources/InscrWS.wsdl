@@ -3,12 +3,12 @@
     </wsdl:import>
     <wsdl:binding name="InscrWebServiceImplServiceSoapBinding" type="ns1:InscrWebService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="test">
+        <wsdl:operation name="addCoursP">
             <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="test">
+            <wsdl:input name="addCoursP">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="testResponse">
+            <wsdl:output name="addCoursPResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>

@@ -1,5 +1,6 @@
 package demo;
 
+import stubs.inscr.Cours;
 import stubs.inscr.InscrWebService;
 import stubs.inscr.InscrWebServiceImplService;
 
@@ -21,6 +22,8 @@ public class InscrWSDemo {
 	private static void demo(InscrWebService ws) throws Exception {
         ws.creatParcours("AL");
         System.out.println("Parcours AL crée");
+		ws.addCoursP("AL", Cours.EP_5_I_9161);
+		System.out.println("le cours Algorithmic approach to distributed computing a été ajouté au parcours AL");
 		//ws.test();
 		//System.out.println("ok");
 	}

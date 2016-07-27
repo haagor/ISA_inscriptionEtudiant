@@ -1,5 +1,7 @@
 package webservices;
 
+import entities.Cours;
+
 import javax.jws.WebMethod;
 import javax.jws.WebResult;
 import javax.jws.WebService;
@@ -12,5 +14,6 @@ public interface InscrWebService {
     void creatParcours(String intitule);
 
     @WebMethod
-    String test();
+    @WebResult(name = "addCoursP") // utilise si return autre chose que void
+    void addCoursP(String intitule, Cours cours);
 }

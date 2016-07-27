@@ -1,5 +1,6 @@
 package webservices;
 
+import entities.Cours;
 import interfaces.ManageParcours;
 
 import javax.ejb.EJB;
@@ -18,6 +19,6 @@ public class InscrWebServiceImpl implements InscrWebService {
     public void creatParcours(String name) { manageParcours.creatParcours(name); }
 
     @Override
-    public String test() { return manageParcours.test(); }
+    public void addCoursP(String intitule, Cours cours) { manageParcours.addCoursP(intitule, cours); }
 
 }

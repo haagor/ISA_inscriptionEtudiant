@@ -2,22 +2,23 @@
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices/" elementFormDefault="unqualified" targetNamespace="http://webservices/" version="1.0">
 
+            <xs:element name="addCoursP" type="tns:addCoursP"/>
+
+            <xs:element name="addCoursPResponse" type="tns:addCoursPResponse"/>
+
             <xs:element name="creatParcours" type="tns:creatParcours"/>
 
             <xs:element name="creatParcoursResponse" type="tns:creatParcoursResponse"/>
 
-            <xs:element name="test" type="tns:test"/>
-
-            <xs:element name="testResponse" type="tns:testResponse"/>
-
-            <xs:complexType name="test">
-                <xs:sequence/>
+            <xs:complexType name="addCoursP">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg1" type="tns:cours"/>
+                </xs:sequence>
             </xs:complexType>
 
-            <xs:complexType name="testResponse">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="return" type="xs:string"/>
-                </xs:sequence>
+            <xs:complexType name="addCoursPResponse">
+                <xs:sequence/>
             </xs:complexType>
 
             <xs:complexType name="creatParcours">
@@ -30,18 +31,32 @@
                 <xs:sequence/>
             </xs:complexType>
 
+            <xs:simpleType name="cours">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="EP5I9161"/>
+                    <xs:enumeration value="EP5I9112"/>
+                    <xs:enumeration value="EP5EU301"/>
+                    <xs:enumeration value="EP5I9270"/>
+                    <xs:enumeration value="EP5I9264"/>
+                    <xs:enumeration value="EP5I9212"/>
+                    <xs:enumeration value="EP5I9193"/>
+                    <xs:enumeration value="EP5I9262"/>
+                    <xs:enumeration value="EP5I9261"/>
+                </xs:restriction>
+            </xs:simpleType>
+
         </xs:schema>
     </wsdl:types>
+    <wsdl:message name="addCoursP">
+        <wsdl:part element="ns1:addCoursP" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCoursPResponse">
+        <wsdl:part element="ns1:addCoursPResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="creatParcoursResponse">
         <wsdl:part element="ns1:creatParcoursResponse" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="testResponse">
-        <wsdl:part element="ns1:testResponse" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="test">
-        <wsdl:part element="ns1:test" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="creatParcours">
@@ -49,10 +64,10 @@
         </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="InscrWebService">
-        <wsdl:operation name="test">
-            <wsdl:input message="ns1:test" name="test">
+        <wsdl:operation name="addCoursP">
+            <wsdl:input message="ns1:addCoursP" name="addCoursP">
             </wsdl:input>
-            <wsdl:output message="ns1:testResponse" name="testResponse">
+            <wsdl:output message="ns1:addCoursPResponse" name="addCoursPResponse">
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="creatParcours">
