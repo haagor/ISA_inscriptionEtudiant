@@ -1,4 +1,4 @@
-package interceptors;
+/*package interceptors;
 
 import utils.Database;
 
@@ -20,3 +20,4 @@ public class TemperatureCounter
         return result;
     }
 }
+*/

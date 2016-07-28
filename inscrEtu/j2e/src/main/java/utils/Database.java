@@ -1,4 +1,4 @@
-package utils;
+/*package utils;
 import entities.Temperature;
 
 import javax.annotation.PostConstruct;
@@ -39,3 +39,4 @@ public class Database {
     }
 
 }
+*/
