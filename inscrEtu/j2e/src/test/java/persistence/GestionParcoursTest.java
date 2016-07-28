@@ -53,6 +53,7 @@ public class GestionParcoursTest extends AbstractTest {
         p = entityManager.merge(p);
         entityManager.persist(p);
 
+
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9161));
         assertFalse(manageParcours.addCoursP("IAM", Cours.EP5I9161)); //same time
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5EU301));
@@ -60,8 +61,9 @@ public class GestionParcoursTest extends AbstractTest {
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9270));
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9212));
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9264));
+        assertFalse(manageParcours.addCoursP("IAM", Cours.EP5I9262)); //not enought ECTS for corequis
+        assertFalse(manageParcours.addCoursP("IAM", Cours.EP5I9261)); //not enought ECTS for corequis
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9193));
-        assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9262)); //too many ECTS (care corequis!)
 
     }
 }

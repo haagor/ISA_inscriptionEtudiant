@@ -61,15 +61,15 @@ public class Parcours implements Serializable {
         if (!prerequis.equals("")) {
             if (prerequis.contains("-")) {
                 for (String id : prerequis.split("-")) {
-                    if (!containsIDCours(id, cours)) {
+                    if (!containsIDCours(id)) {
                         System.out.println(id + " n'a pas tout ses prérequis");
                         return false;
                     }
                 }
                 return true;
             } else {
-                if (!containsIDCours(prerequis, cours)) {
-                    System.out.println(id + " n'a pas tout ses prérequis");
+                if (!containsIDCours(prerequis)) {
+                    System.out.println(c.getId() + " n'a pas tout ses prérequis");
                     return false;
                 }
                 return true;
@@ -79,13 +79,54 @@ public class Parcours implements Serializable {
         }
     }
 
-    public boolean containsIDCours(String idCours, ArrayList<Cours> list_cours) {
-        for (int i = 0; i < list_cours.size(); i++) {
-            if (list_cours.get(i).getId().equals(idCours)) {
+    //check final
+    public boolean corequisOK() {
+        for (Cours c : cours) {
+            if (!oneCorequisOK(c)) {
+                return false;
+            };
+        }
+        return true;
+    }
+
+    public boolean oneCorequisOK(Cours c) {
+        String corequis = c.getCorequis();
+        if (!corequis.equals("")) {
+            if (corequis.contains("-")) {
+                for (String id : corequis.split("-")) {
+                    if (!containsIDCours(id)) {
+                        return false;
+                    }
+                }
+            } else {
+                if (!containsIDCours(corequis)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public boolean containsIDCours(String idCours) {
+        for (int i = 0; i < cours.size(); i++) {
+            if (cours.get(i).getId().equals(idCours)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public int countECTS() {
+        int acc = 0;
+        for (Cours c : cours) {
+            if (c.getPeriode() == 3) {
+                acc += 4;
+            } else {
+                acc += 2;
+            }
+        }
+        return acc;
     }
 
 }

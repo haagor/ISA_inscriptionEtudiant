@@ -20,10 +20,21 @@ public class InscrWSDemo {
 	}
 
 	private static void demo(InscrWebService ws) throws Exception {
-        ws.creatParcours("AL");
+		System.out.println("\n >>> début du scenario S1 <<<");
+		ws.creatParcours("AL");
         System.out.println("Parcours AL crée");
-		ws.addCoursP("AL", Cours.EP_5_I_9161);
-		System.out.println("le cours Algorithmic approach to distributed computing a été ajouté au parcours AL");
+
+        ws.addCoursP("AL", Cours.EP_5_I_9161);     System.out.println("-1");
+        ws.addCoursP("AL", Cours.EP_5_I_9161);     System.out.println("-2");
+        ws.addCoursP("AL", Cours.EP_5_EU_301);     System.out.println("-3");
+        ws.addCoursP("AL", Cours.EP_5_I_9212);     System.out.println("-4");
+        ws.addCoursP("AL", Cours.EP_5_I_9270);     System.out.println("-5");
+        ws.addCoursP("AL", Cours.EP_5_I_9212);     System.out.println("-6");
+        ws.addCoursP("AL", Cours.EP_5_I_9264);     System.out.println("-7");
+        ws.addCoursP("AL", Cours.EP_5_I_9262);     System.out.println("-8");
+        ws.addCoursP("AL", Cours.EP_5_I_9261);     System.out.println("-9");
+        ws.addCoursP("AL", Cours.EP_5_I_9193);     System.out.println("-10");
+
 		//ws.test();
 		//System.out.println("ok");
 	}

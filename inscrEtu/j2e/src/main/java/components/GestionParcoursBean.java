@@ -30,25 +30,12 @@ public class GestionParcoursBean implements ManageParcours {
 
     @Override
     public Boolean addCoursP(String parcours, Cours cours) {
-        Parcours p = search.findParcoursByIntitule(parcours);
+        Parcours p = search.findParcoursByIntitule(parcours); //    /!\ catch null
         ArrayList<Cours> list_cours = p.getCours();
-        int accECTS;
-        if (cours.getPeriode() == 3) {
-            accECTS = 4;
-        } else {
-            accECTS = 2;
-        }
 
         // un cours est deja sur ce creneau?
         for (int i = 0; i < list_cours.size(); i++) {
             Cours c = list_cours.get(i);
-
-            // calculer les ECTS *bien moche*
-            if (c.getPeriode() == 3) {
-                accECTS += 4;
-            } else {
-                accECTS += 2;
-            }
 
             if (cours.getPeriode() == c.getPeriode() || cours.getPeriode() == 3 || c.getPeriode() == 3) {
                 if (cours.getEmplacementJour() == c.getEmplacementJour()) {
@@ -61,10 +48,32 @@ public class GestionParcoursBean implements ManageParcours {
 
         p.addCours(cours);
 
-        if (!p.prerequisOK(cours)) {
+        if ((p.countECTS()) > 12) {
             p.removeCours(cours);
+            p = entityManager.merge(p);
+            entityManager.persist(p);
+            System.out.println("trop de cours");
             return false;
         }
+
+        if ((p.countECTS()) == 12) {
+            if (!p.corequisOK()) {
+                p.removeCours(cours);
+                p = entityManager.merge(p);
+                entityManager.persist(p);
+                System.out.println("corequis pas respectés");
+                return false;
+            }
+        }
+
+        if (!p.prerequisOK(cours)) {
+            p.removeCours(cours);
+            p = entityManager.merge(p);
+            entityManager.persist(p);
+            System.out.println("prerequis pas respectés");
+            return false;
+        }
+
 
         p = entityManager.merge(p);
         entityManager.persist(p);
