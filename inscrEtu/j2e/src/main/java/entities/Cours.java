@@ -10,7 +10,8 @@ public enum Cours {
     EP5I9212("EP5I9212", "Web sémantique", 2, "mardi", "aprem", "EP5I9270", ""),
     EP5I9193("EP5I9193", "Technologies pour les données massives", 2, "lundi", "matin", "", ""),
     EP5I9262("EP5I9262", "Programmable web - server-side", 2, "lundi", "aprem", "", "EP5I9261"),
-    EP5I9261("EP5I9261", "Programmable web - client-side", 2, "jeudi", "matin", "", "EP5I9262");
+    EP5I9261("EP5I9261", "Programmable web - client-side", 2, "jeudi", "matin", "", "EP5I9262"),
+    EP5I9217("EP5I9217", "Interfaces tactiles", 2, "vendredi", "aprem", "", "");
 
     private String id;
     private String intitule;

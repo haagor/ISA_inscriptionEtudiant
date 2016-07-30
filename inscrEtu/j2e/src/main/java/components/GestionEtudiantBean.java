@@ -1,5 +1,6 @@
 package components;
 
+import entities.Cours;
 import entities.Etudiant;
 import entities.Parcours;
 import entities.ParcoursEtu;
@@ -10,6 +11,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 
 @Stateless
 public class GestionEtudiantBean implements ManageEtudiant {
@@ -42,6 +44,57 @@ public class GestionEtudiantBean implements ManageEtudiant {
         entityManager.persist(e);
     }
 
+    // duplicate parce que par la suite il pourrait etre necessaire d'ajouter de nouvelle contrainte
+    // (ex : option spcecifique, interdite pour certains parcours...)
+    @Override
+    public Boolean addCoursEtu(String numeroEtu, Cours cours) {
+        Parcours p = search.findEtudiantByNumEtu(numeroEtu).getParcoursEtu(); //    /!\ catch null
+        ArrayList<Cours> list_cours = p.getCours();
 
+        // un cours est deja sur ce creneau?
+        for (int i = 0; i < list_cours.size(); i++) {
+            Cours c = list_cours.get(i);
+            if (cours.getPeriode() == c.getPeriode() || cours.getPeriode() == 3 || c.getPeriode() == 3) {
+                if (cours.getEmplacementJour() == c.getEmplacementJour()) {
+                    if (cours.getEmplacementHeure() == c.getEmplacementHeure()) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        p.addCours(cours);
+
+        if ((p.countECTS()) > 24) {
+            p.removeCours(cours);
+            p = entityManager.merge(p);
+            entityManager.persist(p);
+            System.out.println("trop de cours");
+            return false;
+        }
+
+        if ((p.countECTS()) == 24) {
+            if (!p.corequisOK()) {
+                p.removeCours(cours);
+                p = entityManager.merge(p);
+                entityManager.persist(p);
+                System.out.println("corequis pas respectés");
+                return false;
+            }
+        }
+
+        if (!p.prerequisOK(cours)) {
+            p.removeCours(cours);
+            p = entityManager.merge(p);
+            entityManager.persist(p);
+            System.out.println("prerequis pas respectés");
+            return false;
+        }
+
+
+        p = entityManager.merge(p);
+        entityManager.persist(p);
+        return true;
+    }
 
 }
