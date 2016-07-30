@@ -1,5 +1,3 @@
-package demo;
-
 import stubs.inscr.Cours;
 import stubs.inscr.InscrWebService;
 import stubs.inscr.InscrWebServiceImplService;
@@ -7,7 +5,7 @@ import stubs.inscr.InscrWebServiceImplService;
 import javax.xml.ws.BindingProvider;
 import java.net.URL;
 
-public class InscrWSDemo {
+public class Main {
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("#### Collecting arguments (host, port)");
@@ -24,6 +22,7 @@ public class InscrWSDemo {
 		ws.creatParcours("AL");
         System.out.println("Parcours AL crée");
 
+		//(same as GestionParcoursTest)
         ws.addCoursP("AL", Cours.EP_5_I_9161);     System.out.println("-1");
         ws.addCoursP("AL", Cours.EP_5_I_9161);     System.out.println("-2");
         ws.addCoursP("AL", Cours.EP_5_EU_301);     System.out.println("-3");
@@ -41,7 +40,7 @@ public class InscrWSDemo {
 
 	private static InscrWebService initialize(String host, String port) {
         System.out.println("#### Loading the WSDL contract");
-		URL wsdlLocation = InscrWSDemo.class.getResource("/InscrWS.wsdl");
+		URL wsdlLocation = Main.class.getResource("/InscrWS.wsdl");
         System.out.println("#### Instantiating the WS Proxy");
 		InscrWebServiceImplService factory = new InscrWebServiceImplService(wsdlLocation);
 		InscrWebService ws = factory.getInscrWebServiceImplPort();

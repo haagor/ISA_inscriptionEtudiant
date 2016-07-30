@@ -2,7 +2,9 @@ package persistence;
 
 import arquillian.AbstractTest;
 import entities.Cours;
+import entities.Etudiant;
 import entities.Parcours;
+import entities.ParcoursEtu;
 import interfaces.ManageParcours;
 import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
@@ -39,7 +41,6 @@ public class StorageTest extends AbstractTest {
         Parcours p = new Parcours("AL", ac);
         assertEquals(0, p.getId());
 
-        p = entityManager.merge(p);
         entityManager.persist(p);
 
         int id = p.getId();
@@ -55,7 +56,6 @@ public class StorageTest extends AbstractTest {
         ArrayList<Cours> ac = new ArrayList<Cours>();
         Parcours p = new Parcours("AL", ac);
         assertEquals(0, p.getId());
-        p = entityManager.merge(p);
         entityManager.persist(p);
 
         assertNotEquals(p.getCours(), null);
@@ -65,5 +65,19 @@ public class StorageTest extends AbstractTest {
         p = search.findParcoursByIntitule("AL");
         assertTrue(p.getCours().contains(Cours.EP5I9161));
 
+    }
+
+    @Test
+    public void storingEtudiant() throws Exception {
+        ParcoursEtu pe = new ParcoursEtu();
+        Etudiant e = new Etudiant("flantier", "noel", "fn123456", pe);
+        assertEquals(0, e.getId());
+        entityManager.persist(e);
+
+        int id = e.getId();
+        assertNotEquals(0, id);
+        Etudiant stored = (Etudiant) entityManager.find(Etudiant.class, id);
+        assertTrue(stored.getNom() == "flantier");
+        assertEquals(e, stored);
     }
 }

@@ -1,6 +1,7 @@
 package components;
 
 import entities.Cours;
+import entities.Etudiant;
 import entities.Parcours;
 import interfaces.Search;
 
@@ -48,4 +49,19 @@ public class SearchBean implements Search {
             return null;
         }
     }
+
+    @Override
+    public Etudiant findEtudiantByNumEtu(String numeroEtu) {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Etudiant> criteria = builder.createQuery(Etudiant.class);
+        Root<Etudiant> root = criteria.from(Etudiant.class);
+        criteria.select(root).where(builder.equal(root.get("numeroEtu"), numeroEtu));
+        TypedQuery<Etudiant> query = entityManager.createQuery(criteria);
+        try {
+            return query.getResultList().get(0);
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
 }

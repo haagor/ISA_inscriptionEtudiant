@@ -38,7 +38,6 @@ public class GestionParcoursTest extends AbstractTest {
     public void CoursSameTime() throws Exception {
         ArrayList<Cours> ac = new ArrayList<Cours>();
         Parcours p = new Parcours("AL", ac);
-        p = entityManager.merge(p);
         entityManager.persist(p);
         manageParcours.addCoursP("AL", Cours.EP5I9161);
         p = search.findParcoursByIntitule("AL");
@@ -50,7 +49,6 @@ public class GestionParcoursTest extends AbstractTest {
     public void addCours() throws Exception {
         ArrayList<Cours> ac = new ArrayList<Cours>();
         Parcours p = new Parcours("IAM", ac);
-        p = entityManager.merge(p);
         entityManager.persist(p);
 
 

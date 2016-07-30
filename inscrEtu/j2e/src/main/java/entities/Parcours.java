@@ -14,11 +14,9 @@ public class Parcours implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotNull
     private String intitule;
 
-    @NotNull
-    private ArrayList<Cours> cours = new ArrayList<Cours>();
+    private ArrayList<Cours> cours;
 
     public Parcours() {
     }

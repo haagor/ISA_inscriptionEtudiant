@@ -8,6 +8,8 @@
         <jta-data-source>MeteoDataSource</jta-data-source>
 
         <class>entities.Parcours</class>
+        <class>entities.Etudiant</class>
+        <class>entities.ParcoursEtu</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
