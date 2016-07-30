@@ -52,16 +52,19 @@ public class SearchBean implements Search {
 
     @Override
     public Etudiant findEtudiantByNumEtu(String numeroEtu) {
+
+        Etudiant res;
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Etudiant> criteria = builder.createQuery(Etudiant.class);
         Root<Etudiant> root = criteria.from(Etudiant.class);
         criteria.select(root).where(builder.equal(root.get("numeroEtu"), numeroEtu));
         TypedQuery<Etudiant> query = entityManager.createQuery(criteria);
         try {
-            return query.getResultList().get(0);
-        } catch (NoResultException nre) {
+            res = query.getResultList().get(0);
+        } catch (Exception e) {
             return null;
         }
+        return res;
     }
 
 }

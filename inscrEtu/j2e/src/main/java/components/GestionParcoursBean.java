@@ -26,11 +26,15 @@ public class GestionParcoursBean implements ManageParcours {
         Parcours p = new Parcours(intitule, c);
         p = entityManager.merge(p);
         entityManager.persist(p);
+        System.out.println("c'est bon c'est crée !!");
     }
 
     @Override
-    public Boolean addCoursP(String parcours, Cours cours) {
+    public Boolean addCoursP(String parcours, Cours cours) throws Exception {
         Parcours p = search.findParcoursByIntitule(parcours); //    /!\ catch null
+        if (p.equals(null)) {
+            throw new Exception("Parcourt introuvable !");
+        }
         ArrayList<Cours> list_cours = p.getCours();
 
         // un cours est deja sur ce creneau?

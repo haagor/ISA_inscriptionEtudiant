@@ -7,7 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface ManageParcours {
 
-    public void creatParcours(String intitule);
-    public Boolean addCoursP(String intitule, Cours cours);
+    void creatParcours(String intitule);
+    Boolean addCoursP(String intitule, Cours cours) throws Exception;
 
 }

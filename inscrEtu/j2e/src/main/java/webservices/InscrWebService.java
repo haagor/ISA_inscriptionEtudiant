@@ -14,6 +14,18 @@ public interface InscrWebService {
     void creatParcours(String intitule);
 
     @WebMethod
-    @WebResult(name = "addCoursP") // utilise si return autre chose que void
-    void addCoursP(String intitule, Cours cours);
+    @WebResult(name = "addCoursP")
+    void addCoursP(String intitule, Cours cours) throws Exception;
+
+    @WebMethod
+    @WebResult(name = "creatEtudiant")
+    void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception;
+
+    @WebMethod
+    @WebResult(name = "selectParcours")
+    void selectParcoursForEtudiant(String numeroEtu, String intitule);
+
+    @WebMethod
+    @WebResult(name = "addCoursEtu")
+    void addCoursEtu(String numeroEtu, Cours cours);
 }

@@ -3,14 +3,18 @@ package entities;
 public enum Cours {
 
     EP5I9161("EP5I9161", "Algorithmic approach to distributed computing", 1, "lundi", "matin", "", "" ),
+    EP5I9193("EP5I9193", "Technologies pour les données massives", 2, "lundi", "matin", "", ""),
     EP5I9112("EP5I9112", "Conception et évaluation des IHM", 3, "lundi", "matin", "", "" ),
     EP5EU301("EP5EU301", "Compression", 1, "lundi", "aprem", "", ""),
     EP5I9270("EP5I9270", "Web de données", 1, "mardi", "matin", "", ""),
-    EP5I9264("EP5I9264", "Sécurité des applications web", 1, "jeudi", "matin", "", ""),
     EP5I9212("EP5I9212", "Web sémantique", 2, "mardi", "aprem", "EP5I9270", ""),
-    EP5I9193("EP5I9193", "Technologies pour les données massives", 2, "lundi", "matin", "", ""),
+    EP5I9264("EP5I9264", "Sécurité des applications web", 1, "jeudi", "matin", "", ""),
     EP5I9262("EP5I9262", "Programmable web - server-side", 2, "lundi", "aprem", "", "EP5I9261"),
     EP5I9261("EP5I9261", "Programmable web - client-side", 2, "jeudi", "matin", "", "EP5I9262"),
+
+    EP5I9xxx("EP5I9xxx", "Environnement logiciels pour la programmation de terminaux mobiles", 3, "mercredi", "matin", "", ""),
+    EP5I9162("EP5I9162", "Security and Privacy 3.0", 2, "mercredi", "aprem", "", ""),
+    EP5I9106("EP5I9106", "Architectures Logicielles", 3, "vendredi", "matin", "", ""),
     EP5I9217("EP5I9217", "Interfaces tactiles", 2, "vendredi", "aprem", "", "");
 
     private String id;

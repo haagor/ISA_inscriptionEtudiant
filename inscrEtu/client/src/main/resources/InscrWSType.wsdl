@@ -1,62 +1,124 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://webservices/" name="InscrWebService" targetNamespace="http://webservices/">
     <wsdl:types>
-        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices/" elementFormDefault="unqualified" targetNamespace="http://webservices/" version="1.0">
-
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webservices/">
+            <xs:element name="addCoursEtu" type="tns:addCoursEtu"/>
+            <xs:element name="addCoursEtuResponse" type="tns:addCoursEtuResponse"/>
             <xs:element name="addCoursP" type="tns:addCoursP"/>
-
             <xs:element name="addCoursPResponse" type="tns:addCoursPResponse"/>
-
+            <xs:element name="creatEtudiant" type="tns:creatEtudiant"/>
+            <xs:element name="creatEtudiantResponse" type="tns:creatEtudiantResponse"/>
             <xs:element name="creatParcours" type="tns:creatParcours"/>
-
             <xs:element name="creatParcoursResponse" type="tns:creatParcoursResponse"/>
-
+            <xs:element name="selectParcoursForEtudiant" type="tns:selectParcoursForEtudiant"/>
+            <xs:element name="selectParcoursForEtudiantResponse" type="tns:selectParcoursForEtudiantResponse"/>
+            <xs:complexType name="addCoursEtu">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg1" type="tns:cours"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="addCoursEtuResponse">
+                <xs:sequence/>
+            </xs:complexType>
             <xs:complexType name="addCoursP">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="arg0" type="xs:string"/>
                     <xs:element minOccurs="0" name="arg1" type="tns:cours"/>
                 </xs:sequence>
             </xs:complexType>
-
             <xs:complexType name="addCoursPResponse">
                 <xs:sequence/>
             </xs:complexType>
-
+            <xs:complexType name="selectParcoursForEtudiant">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="selectParcoursForEtudiantResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="creatEtudiant">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="creatEtudiantResponse">
+                <xs:sequence/>
+            </xs:complexType>
             <xs:complexType name="creatParcours">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="arg0" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
-
             <xs:complexType name="creatParcoursResponse">
                 <xs:sequence/>
             </xs:complexType>
-
             <xs:simpleType name="cours">
                 <xs:restriction base="xs:string">
                     <xs:enumeration value="EP5I9161"/>
+                    <xs:enumeration value="EP5I9193"/>
                     <xs:enumeration value="EP5I9112"/>
                     <xs:enumeration value="EP5EU301"/>
                     <xs:enumeration value="EP5I9270"/>
-                    <xs:enumeration value="EP5I9264"/>
                     <xs:enumeration value="EP5I9212"/>
-                    <xs:enumeration value="EP5I9193"/>
+                    <xs:enumeration value="EP5I9264"/>
                     <xs:enumeration value="EP5I9262"/>
                     <xs:enumeration value="EP5I9261"/>
+                    <xs:enumeration value="EP5I9xxx"/>
+                    <xs:enumeration value="EP5I9162"/>
+                    <xs:enumeration value="EP5I9106"/>
+                    <xs:enumeration value="EP5I9217"/>
                 </xs:restriction>
             </xs:simpleType>
-
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
         </xs:schema>
     </wsdl:types>
+    <wsdl:message name="Exception">
+        <wsdl:part element="ns1:Exception" name="Exception">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="addCoursP">
         <wsdl:part element="ns1:addCoursP" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="selectParcoursForEtudiant">
+        <wsdl:part element="ns1:selectParcoursForEtudiant" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="addCoursPResponse">
         <wsdl:part element="ns1:addCoursPResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="selectParcoursForEtudiantResponse">
+        <wsdl:part element="ns1:selectParcoursForEtudiantResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="creatParcoursResponse">
         <wsdl:part element="ns1:creatParcoursResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="creatEtudiantResponse">
+        <wsdl:part element="ns1:creatEtudiantResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCoursEtu">
+        <wsdl:part element="ns1:addCoursEtu" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCoursEtuResponse">
+        <wsdl:part element="ns1:addCoursEtuResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="creatEtudiant">
+        <wsdl:part element="ns1:creatEtudiant" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="creatParcours">
@@ -64,11 +126,33 @@
         </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="InscrWebService">
+        <wsdl:operation name="addCoursEtu">
+            <wsdl:input message="ns1:addCoursEtu" name="addCoursEtu">
+            </wsdl:input>
+            <wsdl:output message="ns1:addCoursEtuResponse" name="addCoursEtuResponse">
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="addCoursP">
             <wsdl:input message="ns1:addCoursP" name="addCoursP">
             </wsdl:input>
             <wsdl:output message="ns1:addCoursPResponse" name="addCoursPResponse">
             </wsdl:output>
+            <wsdl:fault message="ns1:Exception" name="Exception">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="selectParcoursForEtudiant">
+            <wsdl:input message="ns1:selectParcoursForEtudiant" name="selectParcoursForEtudiant">
+            </wsdl:input>
+            <wsdl:output message="ns1:selectParcoursForEtudiantResponse" name="selectParcoursForEtudiantResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="creatEtudiant">
+            <wsdl:input message="ns1:creatEtudiant" name="creatEtudiant">
+            </wsdl:input>
+            <wsdl:output message="ns1:creatEtudiantResponse" name="creatEtudiantResponse">
+            </wsdl:output>
+            <wsdl:fault message="ns1:Exception" name="Exception">
+            </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="creatParcours">
             <wsdl:input message="ns1:creatParcours" name="creatParcours">

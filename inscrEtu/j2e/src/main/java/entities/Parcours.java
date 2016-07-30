@@ -16,7 +16,7 @@ public class Parcours implements Serializable {
 
     private String intitule;
 
-    private ArrayList<Cours> cours;
+    private ArrayList<Cours> cours = new ArrayList<Cours>(); // new pour client
 
     public Parcours() {
     }

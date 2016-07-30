@@ -4,7 +4,6 @@ import arquillian.AbstractTest;
 import entities.Cours;
 import entities.Etudiant;
 import entities.Parcours;
-import entities.ParcoursEtu;
 import interfaces.ManageParcours;
 import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
@@ -20,7 +19,6 @@ import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 @RunWith(Arquillian.class)
 @Transactional(TransactionMode.COMMIT)
@@ -47,15 +45,15 @@ public class AccessBdTest extends AbstractTest {
     }
 
     @Test
-    public void storingEtudiant() throws Exception {
-        ParcoursEtu pe = new ParcoursEtu();
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456", pe);
+    public void accessEtudiant() throws Exception {
+        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
         assertEquals(0, e.getId());
         entityManager.persist(e);
 
-        assertNotEquals(e.getParcoursEtu(), null);
         e = search.findEtudiantByNumEtu("fn123456");
         assertEquals(e.getNom(), "flantier");
-        assertNotEquals(e.getParcoursEtu(), null);
+        e = search.findEtudiantByNumEtu("blabla");
+        assertEquals(e, null);
+
     }
 }

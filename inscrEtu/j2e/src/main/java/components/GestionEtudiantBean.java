@@ -23,9 +23,16 @@ public class GestionEtudiantBean implements ManageEtudiant {
     private Search search;
 
     @Override
-    public void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception{
-        ParcoursEtu pe = new ParcoursEtu();
-        Etudiant e = new Etudiant(nom, prenom, numeroEtu, pe);
+    public void creatParcoursEtu(String intitule) {
+        ArrayList<Cours> c = new ArrayList<Cours>();
+        Parcours p = new Parcours(intitule, c);
+        p = entityManager.merge(p);
+        entityManager.persist(p);
+    }
+
+    @Override
+    public void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception {
+        Etudiant e = new Etudiant(nom, prenom, numeroEtu);
         //check annuaire
         if (!search.findEtudiantByNumEtu(numeroEtu).equals(null)) {
             throw new Exception("etudiant deja saisi");

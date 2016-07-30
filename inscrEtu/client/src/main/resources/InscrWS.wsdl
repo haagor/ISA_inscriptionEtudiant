@@ -3,6 +3,15 @@
     </wsdl:import>
     <wsdl:binding name="InscrWebServiceImplServiceSoapBinding" type="ns1:InscrWebService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addCoursEtu">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="addCoursEtu">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addCoursEtuResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="addCoursP">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="addCoursP">
@@ -11,6 +20,30 @@
             <wsdl:output name="addCoursPResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="selectParcoursForEtudiant">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="selectParcoursForEtudiant">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="selectParcoursForEtudiantResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="creatEtudiant">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="creatEtudiant">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="creatEtudiantResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="creatParcours">
             <soap:operation soapAction="" style="document"/>

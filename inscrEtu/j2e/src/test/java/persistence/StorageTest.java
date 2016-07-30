@@ -4,7 +4,6 @@ import arquillian.AbstractTest;
 import entities.Cours;
 import entities.Etudiant;
 import entities.Parcours;
-import entities.ParcoursEtu;
 import interfaces.ManageParcours;
 import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
@@ -57,10 +56,6 @@ public class StorageTest extends AbstractTest {
         Parcours p = new Parcours("AL", ac);
         assertEquals(0, p.getId());
         entityManager.persist(p);
-
-        assertNotEquals(p.getCours(), null);
-        p = search.findParcoursByIntitule("AL");
-        assertNotEquals(p.getCours(), null);
         manageParcours.addCoursP("AL", Cours.EP5I9161);
         p = search.findParcoursByIntitule("AL");
         assertTrue(p.getCours().contains(Cours.EP5I9161));
@@ -69,8 +64,7 @@ public class StorageTest extends AbstractTest {
 
     @Test
     public void storingEtudiant() throws Exception {
-        ParcoursEtu pe = new ParcoursEtu();
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456", pe);
+        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
         assertEquals(0, e.getId());
         entityManager.persist(e);
 

@@ -13,11 +13,11 @@ public class Main {
 		String port = ( args.length < 2  ? "8080"      : args[1] );
 		InscrWebService ws = initialize(host, port);
 		System.out.println("#### Running the demo");
-		demo(ws);
-
+		demoS1(ws);
+		demoS2(ws);
 	}
 
-	private static void demo(InscrWebService ws) throws Exception {
+	private static void demoS1(InscrWebService ws) throws Exception {
 		System.out.println("\n >>> début du scenario S1 <<<");
 		ws.creatParcours("AL");
         System.out.println("Parcours AL crée");
@@ -33,9 +33,22 @@ public class Main {
         ws.addCoursP("AL", Cours.EP_5_I_9262);     System.out.println("-8");
         ws.addCoursP("AL", Cours.EP_5_I_9261);     System.out.println("-9");
         ws.addCoursP("AL", Cours.EP_5_I_9193);     System.out.println("-10");
+	}
 
-		//ws.test();
-		//System.out.println("ok");
+	private static void demoS2(InscrWebService ws) throws Exception {
+		System.out.println("\n >>> début du scenario S2 <<<");
+		ws.creatEtudiant("flantier", "noel", "fn123456");
+		System.out.println("Etudiant saisi");
+		ws.selectParcoursForEtudiant("fn123456", "AL");
+		System.out.println("AL selectionné pour Flantier");
+
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9262);		System.out.println("-1");
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9262);		System.out.println("-2");
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9261);		System.out.println("-3");
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9_XXX);		System.out.println("-4");
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9162);		System.out.println("-5");
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9106);		System.out.println("-6");
+		ws.addCoursEtu("fn123456", Cours.EP_5_I_9217);		System.out.println("-7");
 	}
 
 	private static InscrWebService initialize(String host, String port) {

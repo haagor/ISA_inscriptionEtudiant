@@ -21,14 +21,14 @@ public class Etudiant implements Serializable{
     private String numeroEtu;
 
     @OneToOne (cascade = {CascadeType.PERSIST})
-    private ParcoursEtu parcoursEtu;
+    private ParcoursEtu parcoursEtu = null;
 
     public Etudiant() {}
-    public Etudiant(String nom, String prenom, String numeroEtu, ParcoursEtu parcoursEtu) {
+    public Etudiant(String nom, String prenom, String numeroEtu) {
         this.nom = nom;
         this.prenom = prenom;
         this.numeroEtu = numeroEtu;
-        this.parcoursEtu = parcoursEtu;
+        this.parcoursEtu = null;
     }
 
     public int getId() { return id; }
