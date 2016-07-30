@@ -5,7 +5,7 @@ import entities.Cours;
 import entities.Etudiant;
 import entities.Parcours;
 import entities.ParcoursEtu;
-import interfaces.ManageParcours;
+import interfaces.ManageEtudiant;
 import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.transaction.api.annotation.TransactionMode;
@@ -18,44 +18,42 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 
-import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 
 @RunWith(Arquillian.class)
 @Transactional(TransactionMode.COMMIT)
-public class AccessBdTest extends AbstractTest {
-
-    @EJB
-    private ManageParcours manageParcours;
-
-    @EJB
-    private Search search;
+public class GestionEtudiantTest extends AbstractTest {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Test
-    public void accessParcours() throws Exception {
-        sleep(1000);
-        ArrayList<Cours> cours = new ArrayList<Cours>();
-        Parcours p = new Parcours("AL", cours);
-        entityManager.persist(p);
-        p = search.findParcoursByIntitule("AL");
-        assertEquals(p.getIntitule(), "AL");
+    @EJB
+    private ManageEtudiant manageEtudiant;
 
+    @EJB
+    private Search search;
+
+
+    @Test(expected=Exception.class)
+    public void CreatEtudiant() throws Exception {
+        manageEtudiant.creatEtudiant("flantier", "noel", "fn123456");
+        manageEtudiant.creatEtudiant("flantier", "noel", "fn123456");
     }
 
     @Test
-    public void storingEtudiant() throws Exception {
+    public void selectParcours() {
         ParcoursEtu pe = new ParcoursEtu();
         Etudiant e = new Etudiant("flantier", "noel", "fn123456", pe);
-        assertEquals(0, e.getId());
         entityManager.persist(e);
 
-        assertNotEquals(e.getParcoursEtu(), null);
-        e = search.findEtudiantByNumEtu("fn123456");
-        assertEquals(e.getNom(), "flantier");
-        assertNotEquals(e.getParcoursEtu(), null);
+        ArrayList<Cours> ac = new ArrayList<Cours>();
+        Parcours p = new Parcours("AL", ac);
+        entityManager.persist(p);
+
+        manageEtudiant.selectParcoursForEtudiant("fn123456", "AL");
+        Etudiant e1 = search.findEtudiantByNumEtu("fn123456");
+        assertEquals(e1.getParcoursEtu().getIntitule(), "AL");
     }
+
 }

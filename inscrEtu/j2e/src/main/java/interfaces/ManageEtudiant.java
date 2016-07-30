@@ -5,6 +5,7 @@ import javax.ejb.Local;
 @Local
 public interface ManageEtudiant {
 
-    public void creatEtudiant(String nom, String prenom, String numeroEtu);
+    public void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception;
+    public void selectParcoursForEtudiant(String numeroEtu, String intitule);
 
 }
