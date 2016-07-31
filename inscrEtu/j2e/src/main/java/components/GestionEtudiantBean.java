@@ -31,14 +31,15 @@ public class GestionEtudiantBean implements ManageEtudiant {
     }
 
     @Override
-    public void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception {
+    public boolean creatEtudiant(String nom, String prenom, String numeroEtu) {
         Etudiant e = new Etudiant(nom, prenom, numeroEtu);
         //check annuaire
-        if (!search.findEtudiantByNumEtu(numeroEtu).equals(null)) {
-            throw new Exception("etudiant deja saisi");
+        if (search.findEtudiantByNumEtu(numeroEtu) == null) {
+            e = entityManager.merge(e);
+            entityManager.persist(e);
+            return true;
         }
-        e = entityManager.merge(e);
-        entityManager.persist(e);
+        return false;
     }
 
     @Override
@@ -51,7 +52,7 @@ public class GestionEtudiantBean implements ManageEtudiant {
         entityManager.persist(e);
     }
 
-    // duplicate parce que par la suite il pourrait etre necessaire d'ajouter de nouvelle contrainte
+    // duplicate parce que par la suite il pourrait etre necessaire d'ajouter de nouvelles contraintes
     // (ex : option spcecifique, interdite pour certains parcours...)
     @Override
     public Boolean addCoursEtu(String numeroEtu, Cours cours) {

@@ -41,6 +41,8 @@ public class AccessBdTest extends AbstractTest {
         entityManager.persist(p);
         p = search.findParcoursByIntitule("AL");
         assertEquals(p.getIntitule(), "AL");
+        p = search.findParcoursByIntitule("CASPAR");
+        assertEquals(p, null);
 
     }
 

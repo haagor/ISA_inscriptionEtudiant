@@ -8,7 +8,7 @@ import javax.ejb.Local;
 public interface ManageEtudiant {
 
     void creatParcoursEtu(String intitule);
-    void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception;
+    boolean creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception;
     void selectParcoursForEtudiant(String numeroEtu, String intitule);
     Boolean addCoursEtu(String parcours, Cours cours);
 

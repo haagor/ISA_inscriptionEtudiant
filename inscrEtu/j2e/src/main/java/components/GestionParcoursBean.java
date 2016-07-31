@@ -26,7 +26,6 @@ public class GestionParcoursBean implements ManageParcours {
         Parcours p = new Parcours(intitule, c);
         p = entityManager.merge(p);
         entityManager.persist(p);
-        System.out.println("c'est bon c'est crée !!");
     }
 
     @Override

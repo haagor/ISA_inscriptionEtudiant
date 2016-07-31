@@ -10,7 +10,6 @@ import interfaces.Search;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.transaction.api.annotation.TransactionMode;
 import org.jboss.arquillian.transaction.api.annotation.Transactional;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -41,10 +40,10 @@ public class GestionEtudiantTest extends AbstractTest {
     private Search search;
 
 
-    @Ignore//(expected=Exception.class)
+    @Test
     public void CreatEtudiant() throws Exception {
-        manageEtudiant.creatEtudiant("flantier", "noel", "fn123456");
-        manageEtudiant.creatEtudiant("flantier", "noel", "fn123456");
+        assertTrue(manageEtudiant.creatEtudiant("flantier", "noel", "gg777777"));
+        assertFalse(manageEtudiant.creatEtudiant("flantier", "noel", "gg777777"));
     }
 
     @Test
