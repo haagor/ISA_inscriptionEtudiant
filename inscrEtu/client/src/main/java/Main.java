@@ -15,6 +15,7 @@ public class Main {
 		System.out.println("#### Running the demo");
 		demoS1(ws);
 		demoS2(ws);
+        demoS3(ws);
 	}
 
 	private static void demoS1(InscrWebService ws) throws Exception {
@@ -52,6 +53,14 @@ public class Main {
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9106);		System.out.println("-6");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9217);		System.out.println("-7");
 	}
+
+    private static void demoS3(InscrWebService ws) throws Exception {
+        System.out.println("\n >>> début du scenario S3 <<<");
+        System.out.println(ws.afficheEtudiantsInParcours("AL"));
+        System.out.println(ws.afficheEtudiantPeriode("fn123456"));
+        ws.suppressParcoursOfEtu("fn123456");
+        System.out.println(ws.afficheEtudiantsInParcours("AL"));
+    }
 
 	private static InscrWebService initialize(String host, String port) {
         System.out.println("#### Loading the WSDL contract");

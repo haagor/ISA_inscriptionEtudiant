@@ -28,4 +28,18 @@ public interface InscrWebService {
     @WebMethod
     @WebResult(name = "addCoursEtu")
     void addCoursEtu(String numeroEtu, Cours cours);
-}
+
+    @WebMethod
+    @WebResult(name = "afficherEtus")
+    String afficheEtudiantsInParcours(String intitule);
+
+    @WebMethod
+    @WebResult(name = "afficherPeriodeEtu")
+    String afficheEtudiantPeriode(String numeroEtu);
+
+    @WebMethod
+    @WebResult(name = "suppressParcours")
+    void suppressParcoursOfEtu(String numeroEtu);
+
+
+    }

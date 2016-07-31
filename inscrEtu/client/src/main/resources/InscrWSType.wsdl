@@ -5,21 +5,18 @@
             <xs:element name="addCoursEtuResponse" type="tns:addCoursEtuResponse"/>
             <xs:element name="addCoursP" type="tns:addCoursP"/>
             <xs:element name="addCoursPResponse" type="tns:addCoursPResponse"/>
+            <xs:element name="afficheEtudiantPeriode" type="tns:afficheEtudiantPeriode"/>
+            <xs:element name="afficheEtudiantPeriodeResponse" type="tns:afficheEtudiantPeriodeResponse"/>
+            <xs:element name="afficheEtudiantsInParcours" type="tns:afficheEtudiantsInParcours"/>
+            <xs:element name="afficheEtudiantsInParcoursResponse" type="tns:afficheEtudiantsInParcoursResponse"/>
             <xs:element name="creatEtudiant" type="tns:creatEtudiant"/>
             <xs:element name="creatEtudiantResponse" type="tns:creatEtudiantResponse"/>
             <xs:element name="creatParcours" type="tns:creatParcours"/>
             <xs:element name="creatParcoursResponse" type="tns:creatParcoursResponse"/>
             <xs:element name="selectParcoursForEtudiant" type="tns:selectParcoursForEtudiant"/>
             <xs:element name="selectParcoursForEtudiantResponse" type="tns:selectParcoursForEtudiantResponse"/>
-            <xs:complexType name="addCoursEtu">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
-                    <xs:element minOccurs="0" name="arg1" type="tns:cours"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="addCoursEtuResponse">
-                <xs:sequence/>
-            </xs:complexType>
+            <xs:element name="suppressParcoursOfEtu" type="tns:suppressParcoursOfEtu"/>
+            <xs:element name="suppressParcoursOfEtuResponse" type="tns:suppressParcoursOfEtuResponse"/>
             <xs:complexType name="addCoursP">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="arg0" type="xs:string"/>
@@ -36,6 +33,43 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="selectParcoursForEtudiantResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="addCoursEtu">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg1" type="tns:cours"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="addCoursEtuResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="afficheEtudiantsInParcours">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="afficheEtudiantsInParcoursResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="afficherEtus" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="afficheEtudiantPeriode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="afficheEtudiantPeriodeResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="afficherPeriodeEtu" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="suppressParcoursOfEtu">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="suppressParcoursOfEtuResponse">
                 <xs:sequence/>
             </xs:complexType>
             <xs:complexType name="creatEtudiant">
@@ -81,24 +115,12 @@
             </xs:complexType>
         </xs:schema>
     </wsdl:types>
-    <wsdl:message name="Exception">
-        <wsdl:part element="ns1:Exception" name="Exception">
-        </wsdl:part>
-    </wsdl:message>
     <wsdl:message name="addCoursP">
         <wsdl:part element="ns1:addCoursP" name="parameters">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:message name="selectParcoursForEtudiant">
-        <wsdl:part element="ns1:selectParcoursForEtudiant" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="addCoursPResponse">
-        <wsdl:part element="ns1:addCoursPResponse" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="selectParcoursForEtudiantResponse">
-        <wsdl:part element="ns1:selectParcoursForEtudiantResponse" name="parameters">
+    <wsdl:message name="afficheEtudiantsInParcoursResponse">
+        <wsdl:part element="ns1:afficheEtudiantsInParcoursResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="creatParcoursResponse">
@@ -109,12 +131,8 @@
         <wsdl:part element="ns1:creatEtudiantResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:message name="addCoursEtu">
-        <wsdl:part element="ns1:addCoursEtu" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="addCoursEtuResponse">
-        <wsdl:part element="ns1:addCoursEtuResponse" name="parameters">
+    <wsdl:message name="afficheEtudiantsInParcours">
+        <wsdl:part element="ns1:afficheEtudiantsInParcours" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="creatEtudiant">
@@ -125,13 +143,47 @@
         <wsdl:part element="ns1:creatParcours" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="ns1:Exception" name="Exception">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="selectParcoursForEtudiant">
+        <wsdl:part element="ns1:selectParcoursForEtudiant" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="suppressParcoursOfEtuResponse">
+        <wsdl:part element="ns1:suppressParcoursOfEtuResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCoursPResponse">
+        <wsdl:part element="ns1:addCoursPResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="selectParcoursForEtudiantResponse">
+        <wsdl:part element="ns1:selectParcoursForEtudiantResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheEtudiantPeriodeResponse">
+        <wsdl:part element="ns1:afficheEtudiantPeriodeResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCoursEtu">
+        <wsdl:part element="ns1:addCoursEtu" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCoursEtuResponse">
+        <wsdl:part element="ns1:addCoursEtuResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="afficheEtudiantPeriode">
+        <wsdl:part element="ns1:afficheEtudiantPeriode" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="suppressParcoursOfEtu">
+        <wsdl:part element="ns1:suppressParcoursOfEtu" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:portType name="InscrWebService">
-        <wsdl:operation name="addCoursEtu">
-            <wsdl:input message="ns1:addCoursEtu" name="addCoursEtu">
-            </wsdl:input>
-            <wsdl:output message="ns1:addCoursEtuResponse" name="addCoursEtuResponse">
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="addCoursP">
             <wsdl:input message="ns1:addCoursP" name="addCoursP">
             </wsdl:input>
@@ -144,6 +196,30 @@
             <wsdl:input message="ns1:selectParcoursForEtudiant" name="selectParcoursForEtudiant">
             </wsdl:input>
             <wsdl:output message="ns1:selectParcoursForEtudiantResponse" name="selectParcoursForEtudiantResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="addCoursEtu">
+            <wsdl:input message="ns1:addCoursEtu" name="addCoursEtu">
+            </wsdl:input>
+            <wsdl:output message="ns1:addCoursEtuResponse" name="addCoursEtuResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheEtudiantsInParcours">
+            <wsdl:input message="ns1:afficheEtudiantsInParcours" name="afficheEtudiantsInParcours">
+            </wsdl:input>
+            <wsdl:output message="ns1:afficheEtudiantsInParcoursResponse" name="afficheEtudiantsInParcoursResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheEtudiantPeriode">
+            <wsdl:input message="ns1:afficheEtudiantPeriode" name="afficheEtudiantPeriode">
+            </wsdl:input>
+            <wsdl:output message="ns1:afficheEtudiantPeriodeResponse" name="afficheEtudiantPeriodeResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="suppressParcoursOfEtu">
+            <wsdl:input message="ns1:suppressParcoursOfEtu" name="suppressParcoursOfEtu">
+            </wsdl:input>
+            <wsdl:output message="ns1:suppressParcoursOfEtuResponse" name="suppressParcoursOfEtuResponse">
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="creatEtudiant">

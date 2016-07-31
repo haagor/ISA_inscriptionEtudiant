@@ -48,11 +48,11 @@ public class AccessBdTest extends AbstractTest {
 
     @Test
     public void accessEtudiant() throws Exception {
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
+        Etudiant e = new Etudiant("flantier", "noel", "fn1");
         assertEquals(0, e.getId());
         entityManager.persist(e);
 
-        e = search.findEtudiantByNumEtu("fn123456");
+        e = search.findEtudiantByNumEtu("fn1");
         assertEquals(e.getNom(), "flantier");
         e = search.findEtudiantByNumEtu("blabla");
         assertEquals(e, null);

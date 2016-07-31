@@ -35,9 +35,22 @@ public class Etudiant implements Serializable{
     public String getNom() { return nom; }
     public String getPrenom() { return prenom; }
     public String getNumeroEtu() { return numeroEtu; }
-    public Parcours getParcoursEtu() { return parcoursEtu; }
+    public ParcoursEtu getParcoursEtu() { return parcoursEtu; }
 
     public void setParcoursEtu(ParcoursEtu parcoursEtu) {
         this.parcoursEtu = parcoursEtu;
+    }
+
+    public String affichePeriode(int periode) {
+        String res = "";
+        if (parcoursEtu == null) {
+            return "/";
+        }
+        for (Cours c : parcoursEtu.getCours()) {
+            if (c.getPeriode() == periode || c.getPeriode() == 3) {
+                res += c.getIntitule() + "\n";
+            }
+        }
+        return res;
     }
 }

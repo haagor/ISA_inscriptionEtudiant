@@ -64,7 +64,7 @@ public class StorageTest extends AbstractTest {
 
     @Test
     public void storingEtudiant() throws Exception {
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
+        Etudiant e = new Etudiant("flantier", "noel", "fn7");
         assertEquals(0, e.getId());
         entityManager.persist(e);
 

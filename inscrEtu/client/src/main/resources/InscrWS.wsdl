@@ -3,15 +3,6 @@
     </wsdl:import>
     <wsdl:binding name="InscrWebServiceImplServiceSoapBinding" type="ns1:InscrWebService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="addCoursEtu">
-            <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="addCoursEtu">
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output name="addCoursEtuResponse">
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
         <wsdl:operation name="addCoursP">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="addCoursP">
@@ -30,6 +21,42 @@
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="selectParcoursForEtudiantResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="addCoursEtu">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="addCoursEtu">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addCoursEtuResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheEtudiantsInParcours">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="afficheEtudiantsInParcours">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="afficheEtudiantsInParcoursResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="afficheEtudiantPeriode">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="afficheEtudiantPeriode">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="afficheEtudiantPeriodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="suppressParcoursOfEtu">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="suppressParcoursOfEtu">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="suppressParcoursOfEtuResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>

@@ -104,4 +104,12 @@ public class GestionEtudiantBean implements ManageEtudiant {
         return true;
     }
 
+    @Override
+    public void suppressParcoursOfEtu(String numeroEtu) {
+        Etudiant e = search.findEtudiantByNumEtu(numeroEtu);
+        e.setParcoursEtu(null);
+        e = entityManager.merge(e);
+        entityManager.persist(e);
+    }
+
 }

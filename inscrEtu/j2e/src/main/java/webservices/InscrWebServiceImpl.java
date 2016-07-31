@@ -3,6 +3,7 @@ package webservices;
 import entities.Cours;
 import interfaces.ManageEtudiant;
 import interfaces.ManageParcours;
+import interfaces.Search;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -18,6 +19,9 @@ public class InscrWebServiceImpl implements InscrWebService {
 
     @EJB
     private ManageEtudiant manageEtudiant;
+
+    @EJB
+    private Search search;
 
     @Override
     public void creatParcours(String name) {
@@ -42,6 +46,21 @@ public class InscrWebServiceImpl implements InscrWebService {
     @Override
     public void addCoursEtu(String numeroEtu, Cours cours) {
         manageEtudiant.addCoursEtu(numeroEtu, cours);
+    }
+
+    @Override
+    public String afficheEtudiantsInParcours(String intitule) {
+        return search.afficheEtudiantsInParcours(intitule);
+    }
+
+    @Override
+    public String afficheEtudiantPeriode(String numeroEtu) {
+        return search.afficheEtudiantPeriode(numeroEtu);
+    }
+
+    @Override
+    public void suppressParcoursOfEtu(String numeroEtu) {
+        manageEtudiant.suppressParcoursOfEtu(numeroEtu);
     }
 
 }

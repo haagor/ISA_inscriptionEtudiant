@@ -16,7 +16,7 @@ public class Parcours implements Serializable {
 
     private String intitule;
 
-    private ArrayList<Cours> cours = new ArrayList<Cours>(); // new pour client
+    protected ArrayList<Cours> cours = new ArrayList<Cours>(); // new pour client
 
     public Parcours() {
     }
@@ -125,6 +125,16 @@ public class Parcours implements Serializable {
             }
         }
         return acc;
+    }
+
+    public int countPeriode(int periode) {
+        int res = 0;
+        for (Cours c : cours) {
+            if (c.getPeriode() == periode || c.getPeriode() == 3) {
+                res += 2;
+            }
+        }
+        return res;
     }
 
 }

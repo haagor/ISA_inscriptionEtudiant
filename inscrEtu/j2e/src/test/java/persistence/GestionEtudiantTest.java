@@ -48,21 +48,21 @@ public class GestionEtudiantTest extends AbstractTest {
 
     @Test
     public void selectParcours() {
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
+        Etudiant e = new Etudiant("flantier", "noel", "fn2");
         entityManager.persist(e);
 
         ArrayList<Cours> ac = new ArrayList<Cours>();
         Parcours p = new Parcours("AL", ac);
         entityManager.persist(p);
 
-        manageEtudiant.selectParcoursForEtudiant("fn123456", "AL");
-        Etudiant e1 = search.findEtudiantByNumEtu("fn123456");
+        manageEtudiant.selectParcoursForEtudiant("fn2", "AL");
+        Etudiant e1 = search.findEtudiantByNumEtu("fn2");
         assertEquals(e1.getParcoursEtu().getIntitule(), "AL");
     }
 
     @Test
     public void addCours() throws Exception {
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
+        Etudiant e = new Etudiant("flantier", "noel", "fn3");
         entityManager.persist(e);
 
         ArrayList<Cours> ac = new ArrayList<Cours>();
@@ -75,14 +75,14 @@ public class GestionEtudiantTest extends AbstractTest {
         assertTrue(manageParcours.addCoursP("T", Cours.EP5I9264));
         assertTrue(manageParcours.addCoursP("T", Cours.EP5I9193));
 
-        manageEtudiant.selectParcoursForEtudiant("fn123456", "T");
-        assertTrue(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9217));
-        assertFalse(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9217));
+        manageEtudiant.selectParcoursForEtudiant("fn3", "T");
+        assertTrue(manageEtudiant.addCoursEtu("fn3", Cours.EP5I9217));
+        assertFalse(manageEtudiant.addCoursEtu("fn3", Cours.EP5I9217));
     }
 
     @Test
     public void addCoursECTSLimit() throws Exception {
-        Etudiant e = new Etudiant("flantier", "noel", "fn123456");
+        Etudiant e = new Etudiant("flantier", "noel", "fn4");
         entityManager.persist(e);
 
         ArrayList<Cours> ac = new ArrayList<Cours>();
@@ -95,13 +95,13 @@ public class GestionEtudiantTest extends AbstractTest {
         assertTrue(manageParcours.addCoursP("S", Cours.EP5I9264));
         assertTrue(manageParcours.addCoursP("S", Cours.EP5I9193));
 
-        manageEtudiant.selectParcoursForEtudiant("fn123456", "S");
-        assertTrue(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9262));
-        assertTrue(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9261));
-        assertTrue(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9xxx));
-        assertTrue(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9162));
-        assertFalse(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9106));
-        assertTrue(manageEtudiant.addCoursEtu("fn123456", Cours.EP5I9217));
+        manageEtudiant.selectParcoursForEtudiant("fn4", "S");
+        assertTrue(manageEtudiant.addCoursEtu("fn4", Cours.EP5I9262));
+        assertTrue(manageEtudiant.addCoursEtu("fn4", Cours.EP5I9261));
+        assertTrue(manageEtudiant.addCoursEtu("fn4", Cours.EP5I9xxx));
+        assertTrue(manageEtudiant.addCoursEtu("fn4", Cours.EP5I9162));
+        assertFalse(manageEtudiant.addCoursEtu("fn4", Cours.EP5I9106));
+        assertTrue(manageEtudiant.addCoursEtu("fn4", Cours.EP5I9217));
 
     }
 

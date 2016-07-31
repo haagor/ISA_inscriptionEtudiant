@@ -11,5 +11,6 @@ public interface ManageEtudiant {
     void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception;
     void selectParcoursForEtudiant(String numeroEtu, String intitule);
     Boolean addCoursEtu(String parcours, Cours cours);
+    void suppressParcoursOfEtu(String numeroEtu);
 
     }
