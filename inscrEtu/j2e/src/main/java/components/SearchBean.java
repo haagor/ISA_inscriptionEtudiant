@@ -93,8 +93,7 @@ public class SearchBean implements Search {
             if (etudiant.getParcoursEtu() == null) {
                 continue;
             }
-            if (etudiant.getParcoursEtu().getIntitule() != intitule) {
-                continue;
+            if (!etudiant.getParcoursEtu().getIntitule().equals(intitule)) {
             } else {
                 int p1 = etudiant.getParcoursEtu().countPeriode(1);
                 int p2 = etudiant.getParcoursEtu().countPeriode(2);
@@ -105,7 +104,7 @@ public class SearchBean implements Search {
                 }
             }
         }
-        String intro = "*** etudiants du parcours " + intitule + " ***";
+        String intro = "*** etudiants du parcours " + intitule + " ***\n";
         String res = intro +  semiRes + "\n------------ etudiant desequilibre ------------\n\n" + desequilibre;
         return res;
     }

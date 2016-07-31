@@ -19,7 +19,7 @@ public class Main {
 	}
 
 	private static void demoS1(InscrWebService ws) throws Exception {
-		System.out.println("\n >>> début du scenario S1 <<<");
+		System.out.println("\n >>> début du scenario S1 <<<\n");
 		ws.creatParcours("AL");
         System.out.println("Parcours AL crée");
 
@@ -34,10 +34,11 @@ public class Main {
         ws.addCoursP("AL", Cours.EP_5_I_9262);     System.out.println("-8");
         ws.addCoursP("AL", Cours.EP_5_I_9261);     System.out.println("-9");
         ws.addCoursP("AL", Cours.EP_5_I_9193);     System.out.println("-10");
-	}
+
+    }
 
 	private static void demoS2(InscrWebService ws) throws Exception {
-		System.out.println("\n >>> début du scenario S2 <<<");
+		System.out.println("\n >>> début du scenario S2 <<<\n");
 		ws.creatEtudiant("flantier", "noel", "fn123456");
 		System.out.println("Etudiant saisi");
         // decommenter cette ligne pour : "==>> erreur si l’étudiant existe déjà"
@@ -45,21 +46,28 @@ public class Main {
 		ws.selectParcoursForEtudiant("fn123456", "AL");
 		System.out.println("AL selectionné pour Flantier");
 
-		ws.addCoursEtu("fn123456", Cours.EP_5_I_9262);		System.out.println("-1");
+        ws.addCoursEtu("fn123456", Cours.EP_5_I_9262);		System.out.println("-1");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9262);		System.out.println("-2");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9261);		System.out.println("-3");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9_XXX);		System.out.println("-4");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9162);		System.out.println("-5");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9106);		System.out.println("-6");
 		ws.addCoursEtu("fn123456", Cours.EP_5_I_9217);		System.out.println("-7");
-	}
+
+    }
 
     private static void demoS3(InscrWebService ws) throws Exception {
-        System.out.println("\n >>> début du scenario S3 <<<");
+        ws.creatEtudiant("yolo", "yolo", "yolo");
+        ws.selectParcoursForEtudiant("yolo", "AL");
+        ws.addCoursEtu("yolo", Cours.EP_5_I_9217);
+        ws.addCoursEtu("yolo", Cours.EP_5_I_9162);
+
+        System.out.println("\n >>> début du scenario S3 <<<\n");
         System.out.println(ws.afficheEtudiantsInParcours("AL"));
         System.out.println(ws.afficheEtudiantPeriode("fn123456"));
         ws.suppressParcoursOfEtu("fn123456");
         System.out.println(ws.afficheEtudiantsInParcours("AL"));
+
     }
 
 	private static InscrWebService initialize(String host, String port) {

@@ -35,6 +35,8 @@ public class SearchS3Test extends AbstractTest {
         System.out.println(search.EtudiantsByParcours(search.findAllEtudiants(), "S"));
         System.out.println(search.EtudiantsByParcours(search.findAllEtudiants(), "T"));
 
+        System.out.println(search.afficheEtudiantsInParcours("AL"));
+
     }
 
     @Test
