@@ -31,15 +31,14 @@ public class GestionEtudiantBean implements ManageEtudiant {
     }
 
     @Override
-    public boolean creatEtudiant(String nom, String prenom, String numeroEtu) {
+    public void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception {
         Etudiant e = new Etudiant(nom, prenom, numeroEtu);
         //check annuaire
-        if (search.findEtudiantByNumEtu(numeroEtu) == null) {
-            e = entityManager.merge(e);
-            entityManager.persist(e);
-            return true;
+        if (!(search.findEtudiantByNumEtu(numeroEtu) == null)) {
+            throw new Exception("studentAlreadyExistException");
         }
-        return false;
+        e = entityManager.merge(e);
+        entityManager.persist(e);
     }
 
     @Override

@@ -40,10 +40,10 @@ public class GestionEtudiantTest extends AbstractTest {
     private Search search;
 
 
-    @Test
+    @Test(expected = Exception.class)
     public void CreatEtudiant() throws Exception {
-        assertTrue(manageEtudiant.creatEtudiant("flantier", "noel", "gg777777"));
-        assertFalse(manageEtudiant.creatEtudiant("flantier", "noel", "gg777777"));
+        manageEtudiant.creatEtudiant("flantier", "noel", "gg777777");
+        manageEtudiant.creatEtudiant("flantier", "noel", "gg777777");
     }
 
     @Test

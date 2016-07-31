@@ -39,6 +39,8 @@ public class Main {
 		System.out.println("\n >>> début du scenario S2 <<<");
 		ws.creatEtudiant("flantier", "noel", "fn123456");
 		System.out.println("Etudiant saisi");
+        // decommenter cette ligne pour : "==>> erreur si l’étudiant existe déjà"
+		//ws.creatEtudiant("flantier", "noel", "fn123456");
 		ws.selectParcoursForEtudiant("fn123456", "AL");
 		System.out.println("AL selectionné pour Flantier");
 
