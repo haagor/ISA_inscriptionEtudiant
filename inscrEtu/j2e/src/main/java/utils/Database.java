@@ -1,12 +1,11 @@
-/*package utils;
-import entities.Temperature;
+package utils;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.time.Instant;
+import java.util.ArrayList;
 
 @Startup
 @Singleton
@@ -15,28 +14,23 @@ public class Database {
     @PersistenceContext
     private EntityManager entityManager;
 
-	private int tempCounter = 0;
+	private ArrayList<String> authentificator = new ArrayList<>();
 
-	public void incrementTemps() {
-		tempCounter++;
+	public void addAuthentificator(String id) {
+		authentificator.add(id);
 	}
 
-	public int howManyTemps() {
-		return tempCounter;
+	public boolean authentificatorContains(String id) {
+		return authentificator.contains(id);
 	}
 
 	public Database() {
 		flush();
 	}
 
-	public void flush() { tempCounter = 0; }
+	public void flush() { authentificator = new ArrayList<>(); }
 
     @PostConstruct
-    void init() {
-		Temperature th = new Temperature(Instant.now().getEpochSecond(), "haut", -1.0f);
-        entityManager.persist(th);
-
-    }
+    void init() {}
 
 }
-*/

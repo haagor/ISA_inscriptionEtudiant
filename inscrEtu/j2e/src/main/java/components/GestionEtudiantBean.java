@@ -4,11 +4,14 @@ import entities.Cours;
 import entities.Etudiant;
 import entities.Parcours;
 import entities.ParcoursEtu;
+import interceptors.CheckEtudiant;
 import interfaces.ManageEtudiant;
 import interfaces.Search;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
+import javax.jws.WebParam;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
@@ -31,7 +34,10 @@ public class GestionEtudiantBean implements ManageEtudiant {
     }
 
     @Override
-    public void creatEtudiant(String nom, String prenom, String numeroEtu) throws Exception {
+    @Interceptors({CheckEtudiant.class})
+    public void creatEtudiant(@WebParam(name = "nom") String nom,
+                              @WebParam(name = "prenom") String prenom,
+                              @WebParam(name = "numeroEtu") String numeroEtu) throws Exception {
         Etudiant e = new Etudiant(nom, prenom, numeroEtu);
         //check annuaire
         if (!(search.findEtudiantByNumEtu(numeroEtu) == null)) {
