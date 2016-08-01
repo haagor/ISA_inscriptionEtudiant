@@ -15,7 +15,11 @@ public enum Cours {
     EP5I9xxx("EP5I9xxx", "Environnement logiciels pour la programmation de terminaux mobiles", 3, "mercredi", "matin", "", ""),
     EP5I9162("EP5I9162", "Security and Privacy 3.0", 2, "mercredi", "aprem", "", ""),
     EP5I9106("EP5I9106", "Architectures Logicielles", 3, "vendredi", "matin", "", ""),
-    EP5I9217("EP5I9217", "Interfaces tactiles", 2, "vendredi", "aprem", "", "");
+    EP5I9217("EP5I9217", "Interfaces tactiles", 2, "vendredi", "aprem", "", ""),
+
+    EPmultiPrerequis("EPmultiPrerequis", "for test multi prerequis", 2, "vendredi", "aprem", "EP5I9193-EP5I9161", ""),
+    EPmultiCorequis("EPmultiCorequis", "for test multi corequis", 2, "vendredi", "aprem", "", "EP5I9193-EP5I9161");
+
 
     private String id;
     private String intitule;

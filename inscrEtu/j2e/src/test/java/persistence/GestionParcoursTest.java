@@ -64,4 +64,34 @@ public class GestionParcoursTest extends AbstractTest {
         assertTrue(manageParcours.addCoursP("IAM", Cours.EP5I9193));
 
     }
+
+    @Test
+    public void addCoursMultiPrerequis() throws Exception {
+        ArrayList<Cours> ac = new ArrayList<Cours>();
+        Parcours p = new Parcours("multiPre", ac);
+        entityManager.persist(p);
+
+        assertFalse(manageParcours.addCoursP("multiPre", Cours.EPmultiPrerequis));
+        assertTrue(manageParcours.addCoursP("multiPre", Cours.EP5I9161));
+        assertFalse(manageParcours.addCoursP("multiPre", Cours.EPmultiPrerequis));
+        assertTrue(manageParcours.addCoursP("multiPre", Cours.EP5I9193));
+        assertTrue(manageParcours.addCoursP("multiPre", Cours.EPmultiPrerequis));
+
+    }
+
+    @Test
+    public void addCoursMultiCorequis() throws Exception {
+        ArrayList<Cours> ac = new ArrayList<Cours>();
+        Parcours p = new Parcours("multiCo", ac);
+        entityManager.persist(p);
+
+        assertTrue(manageParcours.addCoursP("multiCo", Cours.EP5I9161));
+        assertTrue(manageParcours.addCoursP("multiCo", Cours.EP5EU301));
+        assertTrue(manageParcours.addCoursP("multiCo", Cours.EP5I9270));
+        assertTrue(manageParcours.addCoursP("multiCo", Cours.EP5I9264));
+        assertTrue(manageParcours.addCoursP("multiCo", Cours.EPmultiCorequis));
+        assertFalse(manageParcours.addCoursP("IAM", Cours.EP5I9212));
+        assertTrue(manageParcours.addCoursP("multiCo", Cours.EP5I9193));
+
+    }
 }

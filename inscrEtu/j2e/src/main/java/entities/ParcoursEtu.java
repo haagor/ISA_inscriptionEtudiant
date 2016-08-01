@@ -13,4 +13,8 @@ public class ParcoursEtu extends Parcours {
             super(intitule, cours);
             this.numeroEtu = numeroEtu;
         }
+
+    public String getNumeroEtu() {
+        return numeroEtu;
+    }
 }
