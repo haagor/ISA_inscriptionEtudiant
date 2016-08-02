@@ -3,10 +3,10 @@
 
 
 **Attention** 
-dans le dossier *ext/* executer <code>npm install express --save<\code> pour avoir le dossier *node_modules*
+dans le dossier *ext/* executer <code>npm install express --save</code> pour avoir le dossier *node_modules*
 
 
-**Site utile à la création de mon annuaire :**
+**Site utile à la création et l'intégration de mon annuaire :**
 
 *http://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
 
