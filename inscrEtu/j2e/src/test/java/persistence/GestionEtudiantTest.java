@@ -42,8 +42,8 @@ public class GestionEtudiantTest extends AbstractTest {
 
     @Test(expected = Exception.class)
     public void CreatEtudiant() throws Exception {
-        manageEtudiant.creatEtudiant("flantier", "noel", "gg777777");
-        manageEtudiant.creatEtudiant("flantier", "noel", "gg777777");
+        manageEtudiant.creatEtudiant("nova", "anna", "gg777777");
+        manageEtudiant.creatEtudiant("nova", "anna", "gg777777");
     }
 
     @Test
