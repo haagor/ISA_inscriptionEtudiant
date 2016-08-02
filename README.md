@@ -3,11 +3,13 @@
 
 
 **Attention** 
-dans le dossier ext/ executer '''npm install express --save''' pour avoir le dossier *node_modules*
+dans le dossier *ext/* executer <code>npm install express --save<\code> pour avoir le dossier *node_modules*
 
 
-*Site utile à la création de mon annuaire :*
+**Site utile à la création de mon annuaire :**
 
 *http://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
+
 *http://unirest.io/java.html
+
 *https://www.vainolo.com/2015/10/14/calling-a-web-api-from-java-using-unirest/
