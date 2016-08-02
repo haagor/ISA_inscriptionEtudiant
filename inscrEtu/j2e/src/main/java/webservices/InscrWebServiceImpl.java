@@ -1,6 +1,7 @@
 package webservices;
 
 import entities.Cours;
+import interfaces.Authenticate;
 import interfaces.ManageEtudiant;
 import interfaces.ManageParcours;
 import interfaces.Search;
@@ -22,6 +23,9 @@ public class InscrWebServiceImpl implements InscrWebService {
 
     @EJB
     private Search search;
+
+    @EJB
+    private Authenticate authenticate;
 
     @Override
     public void creatParcours(String name) {
@@ -62,5 +66,8 @@ public class InscrWebServiceImpl implements InscrWebService {
     public void suppressParcoursOfEtu(String numeroEtu) {
         manageEtudiant.suppressParcoursOfEtu(numeroEtu);
     }
+
+    @Override
+    public Boolean authenticate(String id, String mdp) { return authenticate.authenticate(id, mdp); }
 
 }

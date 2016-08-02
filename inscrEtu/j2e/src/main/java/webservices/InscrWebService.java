@@ -41,5 +41,9 @@ public interface InscrWebService {
     @WebResult(name = "suppressParcours")
     void suppressParcoursOfEtu(String numeroEtu);
 
+    @WebMethod
+    @WebResult(name = "authentificate")
+    Boolean authenticate(String id, String mdp);
+
 
     }

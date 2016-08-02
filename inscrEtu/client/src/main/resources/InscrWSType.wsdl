@@ -9,6 +9,8 @@
             <xs:element name="afficheEtudiantPeriodeResponse" type="tns:afficheEtudiantPeriodeResponse"/>
             <xs:element name="afficheEtudiantsInParcours" type="tns:afficheEtudiantsInParcours"/>
             <xs:element name="afficheEtudiantsInParcoursResponse" type="tns:afficheEtudiantsInParcoursResponse"/>
+            <xs:element name="authenticate" type="tns:authenticate"/>
+            <xs:element name="authenticateResponse" type="tns:authenticateResponse"/>
             <xs:element name="creatEtudiant" type="tns:creatEtudiant"/>
             <xs:element name="creatEtudiantResponse" type="tns:creatEtudiantResponse"/>
             <xs:element name="creatParcours" type="tns:creatParcours"/>
@@ -52,6 +54,17 @@
             <xs:complexType name="afficheEtudiantsInParcoursResponse">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="afficherEtus" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="authenticate">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+                    <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="authenticateResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="authentificate" type="xs:boolean"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="afficheEtudiantPeriode">
@@ -105,6 +118,8 @@
                     <xs:enumeration value="EP5I9162"/>
                     <xs:enumeration value="EP5I9106"/>
                     <xs:enumeration value="EP5I9217"/>
+                    <xs:enumeration value="EPmultiPrerequis"/>
+                    <xs:enumeration value="EPmultiCorequis"/>
                 </xs:restriction>
             </xs:simpleType>
             <xs:element name="Exception" type="tns:Exception"/>
@@ -167,12 +182,20 @@
         <wsdl:part element="ns1:afficheEtudiantPeriodeResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="authenticateResponse">
+        <wsdl:part element="ns1:authenticateResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="addCoursEtu">
         <wsdl:part element="ns1:addCoursEtu" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="addCoursEtuResponse">
         <wsdl:part element="ns1:addCoursEtuResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="authenticate">
+        <wsdl:part element="ns1:authenticate" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="afficheEtudiantPeriode">
@@ -208,6 +231,12 @@
             <wsdl:input message="ns1:afficheEtudiantsInParcours" name="afficheEtudiantsInParcours">
             </wsdl:input>
             <wsdl:output message="ns1:afficheEtudiantsInParcoursResponse" name="afficheEtudiantsInParcoursResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="authenticate">
+            <wsdl:input message="ns1:authenticate" name="authenticate">
+            </wsdl:input>
+            <wsdl:output message="ns1:authenticateResponse" name="authenticateResponse">
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="afficheEtudiantPeriode">
