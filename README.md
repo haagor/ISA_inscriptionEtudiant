@@ -2,8 +2,6 @@
 "Le projet porte sur la gestion des inscriptions des étudiants dans les cours de 5A à l’école. On cherche a fournir le système permettant d’inscrire les étudiants aux cours de 5A de manière plus fiable que le LimeSurvey utilisé actuellement sur le web." M.S
 
 
-**Attention** 
-dans le dossier *ext/* executer <code>npm install express --save</code> pour avoir le dossier *node_modules*
 
 
 **Site utile à la création et l'intégration de mon annuaire :**
